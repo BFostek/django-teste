@@ -27,7 +27,7 @@
 
                             </form>
                         {% else %}
-                            <a class="button is-dark has-text-white">Create account</a>
+                            <a class="button is-dark has-text-white" href="{% url 'register' %}">Create account</a>
                             <a class="button is-link has-text-white" href="{% url 'login' %}">Login</a>
                         {% endif %}
                     </div>

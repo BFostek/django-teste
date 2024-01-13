@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block content %}
+{% if form.errors %}
+    <div class="notification is-danger">
+    <p>There were errors in the form, please check the details you entered.</p>
+    <ul>
+        {% for field in form %}
+            {% for error in field.errors %}
+                <li>{{ error }}</li>
+            {% endfor %}
+        {% endfor %}
+    </ul>
+    </div>
+{% endif %}
+{% if user.is_authenticated %}
+<h1>You are already registered</h1>
+{% else %}
+<form method="post" action="{% url 'register' %}">
+{% csrf_token %}
+<div class="field">
+    <label class="label">{{ form.username.label_tag }}</label>
+    <div class="control">
+        {{ form.username }}
+    </div>
+</div>
+<div class="field">
+    <label class="label">{{ form.email.label_tag }}</label>
+    <div class="control">
+        {{ form.email }}
+    </div>
+</div>
+<div class="field">
+    <label class="label">{{ form.password1.label_tag }}</label>
+    <div class="control">
+        {{ form.password1 }}
+    </div>
+</div>
+<div class="field">
+    <label class="label">{{ form.password2.label_tag }}</label>
+    <div class="control">
+        {{ form.password2 }}
+    </div>
+</div>
+<input class="button is-primary" type="submit" value="Register">
+</form>
+{% endif %}
+{% endblock %}

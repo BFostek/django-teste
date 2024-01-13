@@ -1,25 +1,37 @@
 {% extends "base.html" %}
 
 {% block content %}
+    {% if user.is_authenticated %}
+        <div >
+            <a href="{% url 'post_create' %}" >
+                <button class="button is-primary has-text-white is-half" style="margin:10px;">Create new post</button>
+            </a>
+        </div>
 
+    {% endif %}
     {% if posts %}
         {% for post in posts %}
             <div class="card article mb-1">
                 <div class="card-content">
                     <div class="media">
                         <div class="media-content has-text-centered">
-                            <p class="title article-title"><a
-                                    href="{% url 'post_detail' post.pk %}">{{ post.title }}</a></p>
+                            <p class="title article-title">
+                                <a class="has-text-link" href="{% url 'post_detail' post.pk %}">{{ post.title }}</a>
+                            </p>
+                              
                             <div class="tags has-addons level-item">
                                 <span class="tag is-rounded is-info">{{ post.author }}</span>
                                 <span class="tag is-rounded">{{ post.date_published }}</span>
+                          
                             </div>
+                            
+                            
                         </div>
                     </div>
                     <div class="content article-body">
                         <p>{{ post.content }}</p>
                         <a href="{% url 'post_detail' post.pk %}">
-                            <button class="button">Ler mais</button>
+                            <button class="button is-link is-outlined">Ler mais</button>
                         </a>
                     </div>
                 </div>

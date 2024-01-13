@@ -24,6 +24,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('comment/<int:comment_id>/delete/', views.delete_comment, name="delete_comment"),
     path('post/<int:post_id>/comment/', views.add_new_comment, name='post_comment'),
+    path('post/<int:pk>/edit/', views.post_edit, name='post_edit'),
+    path('post/new/', views.post_create, name='post_create'),
     path('posts/', views.list_posts, name='post_list'),
+    path('accounts/register/', views.register, name='register'),
     path('post/<int:pk>/', views.post_detail, name='post_detail'),
 ]
