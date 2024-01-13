@@ -25,6 +25,8 @@ SECRET_KEY = 'django-insecure-c80bydrgus00!o3ach^1xi9_06r+l6^r0$)awt-&*oo8n35b)1
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+LOGIN_REDIRECT_URL = '/posts/'
+LOGOUT_REDIRECT_URL = '/posts/'
 ALLOWED_HOSTS = []
 
 
@@ -37,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'djangoTeste'
 ]
 
 MIDDLEWARE = [

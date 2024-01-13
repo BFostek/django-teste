@@ -1,0 +1,28 @@
+<div class="card mt-3">
+    <div class="card-content">
+        <div class="media">
+            <div class="media-content">
+            <div class="is-flex is-justify-content-space-between">
+                <p class="subtitle is-5 d-flex ">
+                    <strong>{{ comment.author }}</strong>
+                </p>
+                    {% if user.is_authenticated and comment.author.username == user.username %}
+                        <span class="icon-text">
+                            <form  method="post" action="{% url 'delete_comment' comment.id %}">
+                                {% csrf_token %}
+                                <button class="button" type="submit">
+                                    <span class="icon">
+                                        <i class="fas fa-trash"></i>
+                                    </span>
+                                </button>
+                            </form>
+                        </span>
+                    {% endif %}
+            </div>
+                <p class="subtitle is-6">
+                    {{ comment.content }}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

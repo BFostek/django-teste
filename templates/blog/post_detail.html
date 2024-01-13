@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+{% if post %}
+{% include "post.html" with post=post %}
+
+<div class="card mt-3">
+    {% if user.is_authenticated %}
+    {% include "comment_form.html" %}
+    {% else %}
+    {% include "login_prompt.html" %}
+    {% endif %}
+</div>
+
+{% if post.comments.all %}
+<div class="card mt-3">
+    <div class="card-content">
+        <h6 class="has-text-centered is-size-5">Comments</h6>
+        {% for comment in post.comments.all %}
+        {% include "comment.html" with comment=comment %}
+        {% endfor %}
+    </div>
+</div>
+{% else %}
+{% include "no_comments.html" %}
+{% endif %}
+{% else %}
+{% include "no_post.html" %}
+{% endif %}
+        {% endblock content %}
