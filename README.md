@@ -27,7 +27,7 @@ This is the README for the djangoTeste project. This project is developed using 
 
 Now to run the project:
 
-    ```python
+    ```
     python manage.py runserver
     ```
 
