@@ -32,5 +32,3 @@ Now to run the project:
     ```
 
 Visit `localhost:8000` in your browser to view the site.
-
-Note that this is a basic example. There might be additional dependencies and setup steps required depending on how the project has been structured.
