@@ -1,0 +1,18 @@
+# .gitignore file for Django project
+*.pyc
+*~
+
+/myenv/
+/db.sqlite3
+/.vscode
+/static/
+/media/
+
+# Ignore all log files
+*.log
+
+# If you are using PyCharm
+.idea/
+
+# If you are using Mac OS
+.DS_Store
